@@ -6,7 +6,7 @@ from chatterbot.trainers import ListTrainer
 
 chatbot = ChatBot('Joel')
 
-trainer = ChatterBotChatterBotCorpusTrainer(chatbot)
+trainer = ChatterBotCorpusTrainer(chatbot)
 
 trainer.train("chatterbot.corpus.english")
 
