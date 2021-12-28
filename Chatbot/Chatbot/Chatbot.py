@@ -1,5 +1,7 @@
 #import Chatbot module from chatterbot library 
 #import ChatterBotCorpusTrainer from chatterbot.trainers library
+#import ListTrainer from chatterbot.trainers library
+#importing json file
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
@@ -13,8 +15,8 @@ for k, row in enumerate(data):
     train.append(row['question'])
     train.append(row['answer'])
 
-#created ChatBot names Joel
-chatbot = ChatBot('Joel')
+#created ChatBot named Trevor
+chatbot = ChatBot('Trevor')
 
 trainer1 = ChatterBotCorpusTrainer(chatbot)
 trainer1.train(
@@ -25,14 +27,17 @@ trainer1.train(
 
 trainer = ListTrainer(chatbot)
 
+#Training the Bot
+#Limiting the questions and answers database to 1024 as it 
+# would take time in loading 
 trainer.train(train[:1024])
 
-print("Hi I am Joel , the Bot ")
+print("Hi I am Trevor , the Bot ")
 print("Your companion in the entire journey")
 
 while True:
      request = input('You: ')
      response = chatbot.get_response(request)
-     print('Joel: ', response)
+     print('Trevor: ', response)
 
 
